@@ -1,0 +1,49 @@
+{
+  "name": "vue3-system-template",
+  "author": "kangjinrui<1092014304@qq.com>",
+  "version": "1.0.0",
+  "private": false,
+  "license": "MIT",
+  "scripts": {
+    "dev": "vite --mode development",
+    "build": "vite build --mode production",
+    "serve": "vite preview",
+    "zip": "./zip.sh"
+  },
+  "dependencies": {
+    "@element-plus/icons-vue": "^2.1.0",
+    "@supermapgis/iclient-ol": "^11.3.0",
+    "@vueuse/core": "^13.0.0",
+    "axios": "^0.21.1",
+    "chart.js": "^4.2.1",
+    "element-plus": "^2.3.9",
+    "element-resize-detector": "^1.2.4",
+    "highcharts": "^12.1.2",
+    "js-cookie": "^3.0.5",
+    "nprogress": "^0.2.0",
+    "ol": "^9.2.4",
+    "pinia": "^2.1.6",
+    "v-openlayers": "^2.5.2",
+    "vue-chartjs": "^5.2.0",
+    "vue-cropperjs": "^5.0.0",
+    "vue-i18n": "^9.0.0",
+    "vue-router": "^4.0.10",
+    "vxe-pc-ui": "^4.5.10",
+    "vxe-table": "^4.12.5"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^5.2.3",
+    "@vue/compiler-sfc": "^3.3.4",
+    "fast-glob": "^3.3.3",
+    "rollup-plugin-visualizer": "^5.9.0",
+    "sass": "^1.66.1",
+    "vite": "^6.0.6",
+    "vite-plugin-svg-icons": "^2.0.1",
+    "vue": "^3.5.13"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead"
+  ]
+}
