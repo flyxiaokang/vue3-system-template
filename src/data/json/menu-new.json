@@ -1,0 +1,65 @@
+[
+  {
+    "title": "首页",
+    "icon": "HomeFilled",
+    "svgIcon":"common-max",
+    "noCache": false,
+    "link": null,
+    "path": "/dashboard",
+    "hidden": false
+  },
+  {
+    "title": "图标管理",
+    "icon": "Menu",
+    "path": "/icon",
+    "hidden": false,
+    "component": "Layout",
+    "children": [
+      {
+        "title": "预览",
+        "icon": "Target Index",
+        "noCache": false,
+        "link": null,
+        "path": "/icon"
+      }
+    ]
+  },
+  {
+    "title": "系统设置",
+    "icon": "Menu",
+    "path": "/sys",
+    "hidden": false,
+    "component": "Layout",
+    "children": [
+      {
+        "title": "用户管理",
+        "icon": "Target Index",
+        "noCache": false,
+        "link": null,
+        "path": "/sys/user"
+      },
+      {
+        "title": "权限管理",
+        "icon": "Target Index",
+        "noCache": false,
+        "link": null,
+        "children": [
+          {
+            "title": "角色管理",
+            "icon": "Target Index",
+            "noCache": false,
+            "link": null,
+            "path": "/sys/role"
+          },
+          {
+            "title": "菜单管理",
+            "icon": "Target Index",
+            "noCache": false,
+            "link": null,
+            "path": "/sys/menu"
+          }
+        ]
+      }
+    ]
+  }
+]

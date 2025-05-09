@@ -1,0 +1,10 @@
+// jsconfig.json 或 tsconfig.json
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*", "./src/*.vue"] // 添加 .vue 通配符
+    }
+  },
+  "exclude": ["node_modules"]
+}

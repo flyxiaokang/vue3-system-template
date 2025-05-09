@@ -1,0 +1,501 @@
+[
+    {
+        "BIZ_CD": "JSDY",
+        "SHOW_FUNC": "OPENBYURL",
+        "IMAGE_NAME": "string",
+        "SHOW_PARAM": {
+            "url": "/dashboard",
+            "method_name": "openRoute"
+        },
+        "DESTROY_FUNC": "{}",
+        "DESTROY_PARAM": {},
+        "ORD_NUM": 10,
+        "MENU_NM": "首页",
+        "MENU_CD": "JSYG_HOME",
+        "STAT": true,
+        "MENU_URL": "",
+        "MENU_CLS": "hbsw-menu-1",
+        "MENU_FCD": "ROOT",
+        "REMARK": "",
+        "children": []
+    },
+    {
+        "BIZ_CD": "JSDY",
+        "SHOW_FUNC": "OPENBYURL",
+        "IMAGE_NAME": "string",
+        "SHOW_PARAM": {
+            "url": null,
+            "method_name": null
+        },
+        "ORD_NUM": 130,
+        "MENU_NM": "预报方案",
+        "MENU_CD": "JSDY_PLAN_MOD",
+        "STAT": true,
+        "MENU_URL": "",
+        "MENU_CLS": "hbsw-menu-3",
+        "MENU_FCD": "ROOT",
+        "REMARK": "",
+        "DESTROY_PARAM": {},
+        "children": [
+            {
+                "BIZ_CD": "JSDY",
+                "SHOW_FUNC": "OPENBYURL",
+                "IMAGE_NAME": "string",
+                "SHOW_PARAM": {
+                    "url": "/scheme/build",
+                    "method_name": "openRoute"
+                },
+                "ORD_NUM": 1,
+                "MENU_NM": "预报方案构建",
+                "MENU_CD": "JSDY_PLAN_MOD_ORG",
+                "STAT": true,
+                "MENU_URL": "",
+                "MENU_CLS": "el-icon-picture",
+                "MENU_FCD": "JSDY_PLAN_MOD",
+                "REMARK": "",
+                "DESTROY_PARAM": {},
+                "children": []
+            },
+            {
+                "BIZ_CD": "JSDY",
+                "SHOW_FUNC": "OPENBYURL",
+                "IMAGE_NAME": "string",
+                "SHOW_PARAM": {
+                    "url": "/scheme/manager",
+                    "method_name": "openRoute"
+                },
+                "ORD_NUM": 1,
+                "MENU_NM": "预报方案管理",
+                "MENU_CD": "JSDY_PLAN_MOD_ORG",
+                "STAT": true,
+                "MENU_URL": "",
+                "MENU_CLS": "el-icon-picture",
+                "MENU_FCD": "JSDY_PLAN_MOD",
+                "REMARK": "",
+                "DESTROY_PARAM": {},
+                "children": []
+            }
+        ]
+    },
+    {
+        "MENU_CD": "JSDY_SYSMGR",
+        "BIZ_CD": "JSDY",
+        "MENU_FCD": "ROOT",
+        "MENU_NM": "系统管理",
+        "MENU_CLS": "hbsw-menu-9",
+        "ORD_NUM": 610,
+        "MENU_URL": "",
+        "REMARK": "",
+        "STAT": true,
+        "SHOW_FUNC": "OPENBYURL",
+        "SHOW_PARAM": {},
+        "DESTROY_FUNC": "",
+        "DESTROY_PARAM": "",
+        "TS": "1",
+        "IMAGE_NAME": "string",
+        "children": [
+            {
+                "BIZ_CD": "JSDY",
+                "SHOW_FUNC": "OPENBYURL",
+                "IMAGE_NAME": "string",
+                "SHOW_PARAM": {
+                    "url": "/sys/rbac/dict",
+                    "method_name": "openRoute"
+                },
+                "DESTROY_FUNC": "{}",
+                "DESTROY_PARAM": {},
+                "ORD_NUM": 8,
+                "MENU_NM": "字典管理",
+                "MENU_CD": "JSEC_SYS_DICT",
+                "STAT": true,
+                "MENU_URL": "",
+                "MENU_CLS": "el-icon-notebook-1",
+                "MENU_FCD": "JSDY_SYSMGR",
+                "REMARK": "",
+                "TS": 1,
+                "children": []
+            },
+            {
+                "BIZ_CD": "JSDY",
+                "SHOW_FUNC": "OPENBYURL",
+                "IMAGE_NAME": "string",
+                "SHOW_PARAM": {},
+                "DESTROY_FUNC": "{}",
+                "DESTROY_PARAM": {},
+                "ORD_NUM": 8,
+                "MENU_NM": "专题图层管理",
+                "MENU_CD": "JSDY_DATA_M",
+                "STAT": true,
+                "MENU_URL": "",
+                "MENU_CLS": "el-icon-notebook-1",
+                "MENU_FCD": "JSDY_SYSMGR",
+                "REMARK": "",
+                "TS": 1,
+                "children": [
+                    {
+                        "BIZ_CD": "JSDY",
+                        "SHOW_FUNC": "OPENBYURL",
+                        "IMAGE_NAME": "string",
+                        "SHOW_PARAM": {
+                            "method_name": "openRoute",
+                            "url": "/sys/map/base"
+                        },
+                        "DESTROY_FUNC": "{}",
+                        "DESTROY_PARAM": {},
+                        "ORD_NUM": 8,
+                        "MENU_NM": "底图管理",
+                        "MENU_CD": "JSDY_DATA_M5",
+                        "STAT": true,
+                        "MENU_URL": "",
+                        "MENU_CLS": "el-icon-notebook-1",
+                        "MENU_FCD": "JSDY_DATA_M",
+                        "REMARK": "",
+                        "TS": 1,
+                        "children": []
+                    },
+                    {
+                        "BIZ_CD": "JSDY",
+                        "SHOW_FUNC": "OPENBYURL",
+                        "IMAGE_NAME": "string",
+                        "SHOW_PARAM": {
+                            "url": "/sys/map/layers",
+                            "method_name": "openRoute"
+                        },
+                        "MENU_CD": "JSDY_DATA_M7",
+                        "MENU_NM": "图层管理",
+                        "ORD_NUM": 8,
+                        "STAT": true,
+                        "MENU_CLS": "el-icon-notebook-1",
+                        "MENU_FCD": "JSDY_DATA_M",
+                        "DESTROY_FUNC": "{}",
+                        "DESTROY_PARAM": {},
+                        "TS": 1,
+                        "children": []
+                    }
+                ]
+            },
+            {
+                "MENU_CD": "JSDY_MODEL",
+                "BIZ_CD": "JSDY",
+                "MENU_FCD": "JSDY_SYSMGR",
+                "MENU_NM": "模型方法",
+                "MENU_CLS": "el-icon-setting",
+                "ORD_NUM": 50,
+                "MENU_URL": "",
+                "REMARK": "",
+                "STAT": true,
+                "SHOW_FUNC": "OPENBYURL",
+                "SHOW_PARAM": {
+                    "method_name": "openRoute",
+                    "url": "/manager/model"
+                },
+                "DESTROY_FUNC": "",
+                "DESTROY_PARAM": "",
+                "TS": "1",
+                "IMAGE_NAME": "string",
+                "children": [
+                    {
+                        "MENU_CD": "JSDY_MODEL_B",
+                        "BIZ_CD": "JSDY",
+                        "MENU_FCD": "JSDY_MODEL",
+                        "MENU_NM": "模型方法管理",
+                        "MENU_CLS": "el-icon-setting",
+                        "ORD_NUM": 1,
+                        "MENU_URL": "",
+                        "REMARK": "",
+                        "STAT": true,
+                        "SHOW_FUNC": "OPENBYURL",
+                        "SHOW_PARAM": {
+                            "method_name": "openRoute",
+                            "url": "/manager/model"
+                        },
+                        "DESTROY_FUNC": "",
+                        "DESTROY_PARAM": "",
+                        "TS": "1",
+                        "IMAGE_NAME": "string",
+                        "children": []
+                    },
+                    {
+                        "MENU_CD": "JSDY_MODEL_STATUS",
+                        "BIZ_CD": "JSDY",
+                        "MENU_FCD": "JSDY_MODEL",
+                        "MENU_NM": "模型统计分析",
+                        "MENU_CLS": "el-icon-setting",
+                        "ORD_NUM": 3,
+                        "MENU_URL": "",
+                        "REMARK": "",
+                        "STAT": true,
+                        "SHOW_FUNC": "OPENBYURL",
+                        "SHOW_PARAM": {
+                            "method_name": "openRoute",
+                            "url": "/model/statistics"
+                        },
+                        "DESTROY_FUNC": "",
+                        "DESTROY_PARAM": "",
+                        "TS": "1",
+                        "IMAGE_NAME": "string",
+                        "children": []
+                    },
+                    {
+                        "BIZ_CD": "JSDY",
+                        "SHOW_FUNC": "OPENBYURL",
+                        "IMAGE_NAME": "string",
+                        "SHOW_PARAM": {
+                            "url": "/manager/ncFileParse",
+                            "method_name": "openRoute"
+                        },
+                        "DESTROY_FUNC": "",
+                        "DESTROY_PARAM": "",
+                        "ORD_NUM": 81,
+                        "MENU_NM": "NC文件在线解析",
+                        "MENU_CD": "JSDY_MODEL_NCFILEPARSE",
+                        "STAT": true,
+                        "MENU_URL": "",
+                        "MENU_CLS": "el-icon-setting",
+                        "MENU_FCD": "JSDY_MODEL",
+                        "REMARK": "",
+                        "TS": "",
+                        "children": []
+                    }
+                ]
+            },
+            {
+                "BIZ_CD": "JSDY",
+                "SHOW_FUNC": "OPENBYURL",
+                "IMAGE_NAME": "string",
+                "SHOW_PARAM": {
+                    "url": "/tool/analysis-tool",
+                    "method_name": "openRoute"
+                },
+                "DESTROY_FUNC": "{}",
+                "DESTROY_PARAM": {},
+                "ORD_NUM": 145,
+                "MENU_NM": "水文空间分析",
+                "MENU_CD": "HYDRO_GEO_ANAL",
+                "STAT": true,
+                "MENU_URL": "",
+                "MENU_CLS": "el-icon-picture",
+                "MENU_FCD": "JSDY_SYSMGR",
+                "REMARK": "",
+                "children": [
+                    {
+                        "BIZ_CD": "JSDY",
+                        "SHOW_FUNC": "OPENBYURL",
+                        "IMAGE_NAME": "string",
+                        "SHOW_PARAM": {
+                            "url": "/tool/analysis-tool/drawing",
+                            "method_name": "openRoute"
+                        },
+                        "DESTROY_FUNC": "{}",
+                        "DESTROY_PARAM": {},
+                        "ORD_NUM": 148,
+                        "MENU_NM": "流域圈画",
+                        "MENU_CD": "HYDRO_GEO_ANAL_drawing",
+                        "STAT": true,
+                        "MENU_URL": "",
+                        "MENU_CLS": "el-icon-picture",
+                        "MENU_FCD": "HYDRO_GEO_ANAL",
+                        "REMARK": "",
+                        "children": []
+                    },
+                    {
+                        "BIZ_CD": "JSDY",
+                        "SHOW_FUNC": "OPENBYURL",
+                        "IMAGE_NAME": "string",
+                        "SHOW_PARAM": {
+                            "url": "/tool/analysis-tool/similar",
+                            "method_name": "openRoute"
+                        },
+                        "DESTROY_FUNC": "{}",
+                        "DESTROY_PARAM": {},
+                        "ORD_NUM": 149,
+                        "MENU_NM": "相似分析",
+                        "MENU_CD": "HYDRO_GEO_ANAL_similar",
+                        "STAT": true,
+                        "MENU_URL": "",
+                        "MENU_CLS": "el-icon-picture",
+                        "MENU_FCD": "HYDRO_GEO_ANAL",
+                        "REMARK": "",
+                        "children": []
+                    }
+                ]
+            },
+            {
+                "BIZ_CD": "JSDY",
+                "SHOW_FUNC": "OPENBYURL",
+                "IMAGE_NAME": "string",
+                "SHOW_PARAM": {
+                    "url": "/hb/hydro_tool",
+                    "method_name": "openRoute"
+                },
+                "DESTROY_FUNC": "{}",
+                "DESTROY_PARAM": {},
+                "ORD_NUM": 150,
+                "MENU_NM": "水文工具集",
+                "MENU_CD": "HYDRO_TOOL",
+                "STAT": true,
+                "MENU_URL": "",
+                "MENU_CLS": "el-icon-picture",
+                "MENU_FCD": "JSDY_SYSMGR",
+                "REMARK": "",
+                "children": [
+                    {
+                        "BIZ_CD": "JSDY",
+                        "SHOW_FUNC": "OPENBYURL",
+                        "IMAGE_NAME": "string",
+                        "SHOW_PARAM": {
+                            "method_name": "openRoute",
+                            "url": "/tool/frequency-analysis"
+                        },
+                        "DESTROY_FUNC": "{}",
+                        "DESTROY_PARAM": {},
+                        "ORD_NUM": 151,
+                        "MENU_NM": "频率分析",
+                        "MENU_CD": "HYDRO_TOOL_frequencyAnalysis",
+                        "STAT": true,
+                        "MENU_URL": "",
+                        "MENU_CLS": "el-icon-picture",
+                        "MENU_FCD": "HYDRO_TOOL",
+                        "REMARK": "",
+                        "children": []
+                    },
+                    {
+                        "BIZ_CD": "JSDY",
+                        "SHOW_FUNC": "OPENBYURL",
+                        "IMAGE_NAME": "string",
+                        "SHOW_PARAM": {
+                            "method_name": "openRoute",
+                            "url": "/tool/reverse-inference"
+                        },
+                        "DESTROY_FUNC": "{}",
+                        "DESTROY_PARAM": {},
+                        "ORD_NUM": 152,
+                        "MENU_NM": "入库反推",
+                        "MENU_CD": "HYDRO_TOOL_reverseInference",
+                        "STAT": true,
+                        "MENU_URL": "",
+                        "MENU_CLS": "el-icon-picture",
+                        "MENU_FCD": "HYDRO_TOOL",
+                        "REMARK": "",
+                        "children": []
+                    },
+                    {
+                        "BIZ_CD": "JSDY",
+                        "SHOW_FUNC": "OPENBYURL",
+                        "IMAGE_NAME": "string",
+                        "SHOW_PARAM": {
+                            "method_name": "openRoute",
+                            "url": "/hydraulics/correlogram"
+                        },
+                        "DESTROY_FUNC": "{}",
+                        "DESTROY_PARAM": {},
+                        "ORD_NUM": 152,
+                        "MENU_NM": "降雨径流相关图",
+                        "MENU_CD": "HYDRO_TOOL_COOR23",
+                        "STAT": true,
+                        "MENU_URL": "",
+                        "MENU_CLS": "el-icon-picture",
+                        "MENU_FCD": "HYDRO_TOOL",
+                        "REMARK": "",
+                        "children": []
+                    },
+                    {
+                        "BIZ_CD": "JSEC",
+                        "SHOW_FUNC": "OPENBYURL",
+                        "IMAGE_NAME": "string",
+                        "SHOW_PARAM": {
+                            "url": "/hydraulics/floodiagrams",
+                            "method_name": "openRoute"
+                        },
+                        "DESTROY_FUNC": "{}",
+                        "DESTROY_PARAM": {},
+                        "ORD_NUM": "153",
+                        "MENU_NM": "洪峰水位相关图",
+                        "MENU_CD": "HYDRO_TOOL_COOR24",
+                        "STAT": true,
+                        "MENU_URL": "",
+                        "MENU_CLS": "el-icon-picture",
+                        "MENU_FCD": "HYDRO_TOOL",
+                        "REMARK": "",
+                        "children": []
+                    }
+                ]
+            },
+            {
+                "BIZ_CD": "JSDY",
+                "SHOW_FUNC": "OPENBYURL",
+                "IMAGE_NAME": "string",
+                "SHOW_PARAM": {
+                    "url": "/manager/zhxxIndex8",
+                    "method_name": "openRoute"
+                },
+                "ORD_NUM": 440,
+                "MENU_NM": "专用数据",
+                "MENU_CD": "JSDY_DATA",
+                "STAT": true,
+                "MENU_URL": "",
+                "MENU_CLS": "el-icon-picture",
+                "MENU_FCD": "JSDY_SYSMGR",
+                "REMARK": "",
+                "DESTROY_PARAM": {},
+                "children": [
+                    {
+                        "BIZ_CD": "JSDY",
+                        "SHOW_FUNC": "OPENBYURL",
+                        "IMAGE_NAME": "string",
+                        "SHOW_PARAM": {
+                            "url": "/manager/zhxxIndex8",
+                            "method_name": "openRoute"
+                        },
+                        "ORD_NUM": 40,
+                        "MENU_NM": "点线面管理",
+                        "MENU_CD": "JSDY_DATA1",
+                        "STAT": true,
+                        "MENU_URL": "",
+                        "MENU_CLS": "el-icon-picture",
+                        "MENU_FCD": "JSDY_DATA",
+                        "REMARK": "",
+                        "DESTROY_PARAM": {},
+                        "children": []
+                    },
+                    {
+                        "BIZ_CD": "JSDY",
+                        "SHOW_FUNC": "OPENBYURL",
+                        "IMAGE_NAME": "string",
+                        "SHOW_PARAM": {
+                            "url": "/manager/zhxxIndex86",
+                            "method_name": "openRoute"
+                        },
+                        "ORD_NUM": 40,
+                        "MENU_NM": "测站列表",
+                        "MENU_CD": "JSDY_DATA9",
+                        "STAT": true,
+                        "MENU_URL": "",
+                        "MENU_CLS": "el-icon-picture",
+                        "MENU_FCD": "JSDY_DATA",
+                        "REMARK": "",
+                        "DESTROY_PARAM": {},
+                        "children": []
+                    }
+                ]
+            },
+            {
+                "BIZ_CD": "JSDY",
+                "SHOW_FUNC": "OPENBYURL",
+                "DESTROY_FUNC": "{}",
+                "IMAGE_NAME": "string",
+                "MENU_CD": "JSDY_SYSMGR_ONLINE",
+                "MENU_CLS": "string",
+                "MENU_FCD": "JSDY_SYSMGR",
+                "MENU_NM": "访问人员统计",
+                "SHOW_PARAM": {
+                    "method_name": "openRoute",
+                    "url": "/loginRecord"
+                },
+                "STAT": true,
+                "ORD_NUM": 620,
+                "children": []
+            }
+        ]
+    }
+]
