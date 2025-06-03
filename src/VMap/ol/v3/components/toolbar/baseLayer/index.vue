@@ -4,7 +4,7 @@
  * @Author: kangjinrui
  * @Date: 2021-09-22 19:52:30
  * @LastEditors: kangjinrui
- * @LastEditTime: 2025-05-26 11:41:17
+ * @LastEditTime: 2025-06-03 11:26:53
 -->
 <template>
   <div class="vmap-base-layer" :style="getStyle">
@@ -138,6 +138,7 @@ export default {
   border-radius: 5px;
   box-shadow: 5px 5px 8px 1px rgba(0, 0, 0, 0.3);
   font-size: 14px;
+  z-index: 199;
 }
 
 .vmap-layers .item {

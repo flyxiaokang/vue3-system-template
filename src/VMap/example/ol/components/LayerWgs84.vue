@@ -4,7 +4,7 @@
  * @Author: kangjinrui
  * @Date: 2023-08-17 09:20:06
  * @LastEditors: kangjinrui
- * @LastEditTime: 2025-05-30 09:26:03
+ * @LastEditTime: 2025-06-03 11:38:06
 -->
 <template>
   <div style="width: 100%; height: 100%">
@@ -42,7 +42,7 @@
       />
     </div>
 
-    <VueDraggablePanel
+    <!-- <VueDraggablePanel
       :init-top="20"
       :init-left="20"
       :init-height="500"
@@ -56,7 +56,7 @@
       :init-height="500"
       :init-width="600"
       theme="dark"
-    ></VueDraggablePanel>
+    ></VueDraggablePanel> -->
 
     <OlMap
       style="height: calc(100% - 100px)"
@@ -542,9 +542,9 @@ const showOverlay = (e) => {
 const handleMouseClick = (e) => {
   // console.log('mouse-click===',e, olHandler.map.get('mouseStatus'))
   // overlay
-  showOverlay(e);
+  // showOverlay(e);
   // popup
-  // showFeaturePopup(e);
+  showFeaturePopup(e);
   // vector tile
   getVtFeature(e);
 };

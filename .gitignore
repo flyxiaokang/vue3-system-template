@@ -1,14 +1,18 @@
 .DS_Store
+publish/ol/package/
+publish/esri/package/
+publish/cesium/package/
+publish/components/package/
 node_modules/
+node_modules-/
+node_modules*/
 dist/
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-**/*.log
-
+package-lock.json
 tests/**/coverage/
-tests/e2e/reports
-selenium-debug.log
+*copy.js
 
 # Editor directories and files
 .idea
@@ -17,7 +21,4 @@ selenium-debug.log
 *.ntvs*
 *.njsproj
 *.sln
-*.local
-
-package-lock.json
-yarn.lock
+.npmrc

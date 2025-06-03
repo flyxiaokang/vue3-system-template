@@ -83,7 +83,7 @@ onUnmounted(() => {})
   position: absolute;
   background-color: rgba(255, 255, 255, 0) !important;
   bottom: 12px;
-  left: -22px;
+  left: -21px;
   min-width: 66px !important;
   border-radius: 8px;
 }
