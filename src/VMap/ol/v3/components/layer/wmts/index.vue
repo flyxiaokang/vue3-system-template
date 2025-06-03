@@ -1,0 +1,39 @@
+<!--
+ * @Description: wmts
+ * @Version: 
+ * @Author: kangjinrui
+ * @Date: 2023-06-16 20:47:11
+ * @LastEditors: kangjinrui
+ * @LastEditTime: 2025-01-01 14:31:06
+-->
+<template>
+  <Layer :map-provider="mapProvider" />
+</template>
+
+<script setup>
+import Layer from '../layer/index.vue'
+import { isString } from '@/VMap/public/utils/base/validate'
+
+const props = defineProps({
+  mapProvider: {
+    type: String,
+    default: 'wmts',
+    require: true,
+    validator(value) {
+      return (
+        isString(value) &&
+        ['tdt', 'wmts', 'xyz', 'supermap', 'arcgistile'].includes(
+          value.toLowerCase()
+        )
+      )
+    },
+  },
+})
+</script>
+
+<script>
+export default {
+  name: 'OlWmts',
+}
+</script>
+<style lang="scss" scoped></style>

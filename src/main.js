@@ -4,7 +4,7 @@
  * @Author: kangjinrui
  * @Date: 2024-12-11 16:15:00
  * @LastEditors: kangjinrui
- * @LastEditTime: 2025-04-30 10:26:29
+ * @LastEditTime: 2025-05-26 10:40:17
  */
 import { createApp } from 'vue'
 import { createPinia } from 'pinia'
@@ -12,8 +12,8 @@ import App from './App.vue'
 import router from './router'
 import './permission'
 
-import 'v-openlayers/package/style.css'
-import VMap from 'v-openlayers'
+// import 'v-openlayers/package/style.css'
+// import VMap from 'v-openlayers'
 
 import installElementPlus from './plugins/element'
 import 'virtual:svg-icons-register' // 必须引入的虚拟模块
@@ -32,7 +32,7 @@ const app = createApp(App)
 const pinia = createPinia()
 installElementPlus(app)
 
-app.use(VMap)
+// app.use(VMap)
 app.use(VxeUITable).use(VxeUiPC)
 app.component('SvgIcon', SvgIcon)
 app.component('Draggable', Draggable)

@@ -4,7 +4,7 @@
  * @Author: kangjinrui
  * @Date: 2021-11-27 20:54:07
  * @LastEditors: kangjinrui
- * @LastEditTime: 2025-04-30 14:59:55
+ * @LastEditTime: 2025-05-26 10:35:41
  */
 import { createRouter, createWebHashHistory } from 'vue-router'
 import Layout from '@/layout/Index.vue'
@@ -68,6 +68,15 @@ const routes = [
         },
         component: () =>
           import(/* webpackChunkName: "403" */ '../views/403.vue'),
+      },
+       {
+        path: '/ol/map',
+        name: 'map',
+        meta: {
+          title: 'map',
+        },
+        component: () =>
+          import(/* webpackChunkName: "404" */ '../VMap/example/ol/index.vue'),
       },
     ],
   },

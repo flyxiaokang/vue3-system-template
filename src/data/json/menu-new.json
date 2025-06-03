@@ -2,7 +2,7 @@
   {
     "title": "首页",
     "icon": "HomeFilled",
-    "svgIcon":"common-max",
+    "svgIcon": "common-max",
     "noCache": false,
     "link": null,
     "path": "/dashboard",
@@ -59,6 +59,22 @@
             "path": "/sys/menu"
           }
         ]
+      }
+    ]
+  },
+  {
+    "title": "ol",
+    "icon": "Menu",
+    "path": "/ol",
+    "hidden": false,
+    "component": "Layout",
+    "children": [
+      {
+        "title": "预览",
+        "icon": "Target Index",
+        "noCache": false,
+        "link": null,
+        "path": "/ol/map"
       }
     ]
   }

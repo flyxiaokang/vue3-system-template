@@ -8,11 +8,14 @@
     "dev": "vite --mode development",
     "build": "vite build --mode production",
     "serve": "vite preview",
-    "zip": "./zip.sh"
+    "zip": "./zip.sh",
+    "lib": "vite build --mode production"
   },
   "dependencies": {
     "@element-plus/icons-vue": "^2.1.0",
     "@supermapgis/iclient-ol": "^11.3.0",
+    "@terraformer/wkt": "^2.2.1",
+    "@turf/turf": "^7.2.0",
     "@vueuse/core": "^13.0.0",
     "axios": "^0.21.1",
     "chart.js": "^4.2.1",
@@ -20,16 +23,20 @@
     "element-resize-detector": "^1.2.4",
     "highcharts": "^12.1.2",
     "js-cookie": "^3.0.5",
+    "jszip": "^3.10.1",
     "nprogress": "^0.2.0",
     "ol": "^9.2.4",
     "pinia": "^2.1.6",
+    "proj4": "^2.17.0",
+    "shapefile": "^0.6.6",
     "v-openlayers": "^2.5.2",
     "vue-chartjs": "^5.2.0",
     "vue-cropperjs": "^5.0.0",
     "vue-i18n": "^9.0.0",
     "vue-router": "^4.0.10",
     "vxe-pc-ui": "^4.5.10",
-    "vxe-table": "^4.12.5"
+    "vxe-table": "^4.12.5",
+    "xlsx": "^0.18.5"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^5.2.3",

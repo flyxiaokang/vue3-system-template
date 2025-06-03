@@ -1,0 +1,49 @@
+{
+    "version": 8,
+    "sprite": "http://192.168.0.169:8080/api/v1/sprites/aolutong/ryj9nYbGB/sprite",
+    "glyphs": "http://192.168.0.169:8080/api/v1/fonts/aolutong/{fontstack}/{range}.pbf",
+    "sources": {
+        "dt_sxdltb": {
+            "type": "vector",
+            "url": "http://192.168.0.169:8080/api/v1/tilesets/aolutong/dt_sxdltb"
+        }
+    },
+    "layers": [{
+        "id": "地类图斑",
+        "type": "fill",
+        "source": "dt_sxdltb",
+        "source-layer": "dt_sxdltb",
+        "minzoom": 10,
+        "maxzoom": 18,
+        "layout": {
+            "visibility": "visible"
+        },
+        "paint": {
+            "fill-color": ["match", ["get", "dlbm"],
+                ["0701", "0702"], "rgb(240,110,125)", ["08H1", "08H2", "0809", "0810A"], "rgb(255,170,200)", ["05H1", "0508"], "rgb(235,150,160)", "0401", "rgb(170,190,30)", "0403", "rgb(150,210,50)", "0404", "rgb(200,220,100)", "0601", "rgb(210,145,135)", "1006", "rgb(127,63,0)", "1201", "rgb(225,200,225)", "1202", "rgb(165,0,0)", "0102", "rgb(255,255,0)", ["0301", "0302", "0305", "0307"], "rgb(40,140,0)", ["0201", "0202", "0203", "0204"], "rgb(245,210,40)", ["1003", "1004"], "rgb(170,85,80)", ["1107", "1107A"], "rgb(160,205,240)", ["1101", "1104"], "rgb(150,240,255)", "1109", "rgb(230,130,100)", "#15d649"
+            ],
+            "fill-opacity": 0.8,
+            "fill-antialias": true,
+            "fill-outline-color": "#192fd1"
+        },
+        "interactive": true
+    }, {
+        "id": "地类图斑注记",
+        "type": "symbol",
+        "source": "dt_sxdltb",
+        "source-layer": "dt_sxdltb",
+        "minzoom": 10,
+        "maxzoom": 18,
+        "layout": {
+            "text-field": "{dlmc}",
+            "text-font": ["Microsoft YaHei Regular"],
+            "text-size": 12,
+            "symbol-avoid-edges": true,
+            "visibility": "visible"
+        },
+        "paint": {
+            "text-opacity": 1,
+            "text-color": "#000000"
+        }
+    }]
+}

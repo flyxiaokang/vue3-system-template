@@ -1,0 +1,25 @@
+{
+    "name": "v-openlayers",
+    "description": "基于vue3+openlayers封装的组件库",
+    "author": "kangjinrui<1092014304@qq.com>",
+    "version": "2.6.0",
+    "private": false,
+    "main": "package/v-openlayers.mjs",
+    "keywords": [
+      "openlayers",
+      "map",
+      "vue3"
+    ],
+    "license": "MIT",
+    "scripts": {},
+    "dependencies": {
+    },
+    "devDependencies": {
+    },
+    "browserslist": [
+      "> 1%",
+      "last 2 versions",
+      "not dead"
+    ]
+  }
+  
