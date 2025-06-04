@@ -4,7 +4,7 @@
  * @Author: kangjinrui
  * @Date: 2023-08-17 09:20:06
  * @LastEditors: kangjinrui
- * @LastEditTime: 2025-06-03 11:38:06
+ * @LastEditTime: 2025-06-04 09:48:27
 -->
 <template>
   <div style="width: 100%; height: 100%">
@@ -86,7 +86,12 @@
       </OlOverlay>
 
       <!-- popup -->
-      <OlPopup title="属性" theme="light" :position="curPosition">
+      <OlPopup
+        title="属性"
+        theme="light"
+        :show-title="false"
+        :position="curPosition"
+      >
         <label>自定义内容</label>
       </OlPopup>
 
@@ -540,7 +545,7 @@ const showOverlay = (e) => {
 };
 
 const handleMouseClick = (e) => {
-  // console.log('mouse-click===',e, olHandler.map.get('mouseStatus'))
+  console.log("mouse-click===", olHandler.map.get("mouseStatus"));
   // overlay
   // showOverlay(e);
   // popup

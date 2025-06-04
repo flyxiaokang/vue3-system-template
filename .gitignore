@@ -3,6 +3,7 @@ publish/ol/package/
 publish/esri/package/
 publish/cesium/package/
 publish/components/package/
+publish/
 node_modules/
 node_modules-/
 node_modules*/

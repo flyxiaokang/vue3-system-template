@@ -8,7 +8,8 @@
  */
 // import config from './lib/config/wgs84.config'
 // import config from './lib/config/webMecator.config'
-import config from './lib/config/default.config'
+// import config from './lib/config/default.config'
+import config from './lib/config/mapConfig-4326'
 
 let mapConfig = config
 

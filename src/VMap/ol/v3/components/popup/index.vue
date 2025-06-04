@@ -4,7 +4,7 @@
  * @Author: kangjinrui
  * @Date: 2023-06-16 20:11:12
  * @LastEditors: kangjinrui
- * @LastEditTime: 2025-05-12 15:32:14
+ * @LastEditTime: 2025-06-03 18:37:26
 -->
 <template>
   <div v-show="visible" :id="popupId" :class="getClass">
@@ -170,7 +170,8 @@ onUnmounted(() => {})
 
 .vmap-popup-content {
   width: 100%;
-  border-bottom-left-radius: 5px;
-  border-bottom-right-radius: 5px;
+  // border-bottom-left-radius: 5px;
+  // border-bottom-right-radius: 5px;
+  border-radius:2px;
 }
 </style>

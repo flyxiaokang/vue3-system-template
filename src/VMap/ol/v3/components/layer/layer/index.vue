@@ -4,7 +4,7 @@
  * @Author: kangjinrui
  * @Date: 2023-06-16 20:47:11
  * @LastEditors: kangjinrui
- * @LastEditTime: 2025-05-16 15:49:29
+ * @LastEditTime: 2025-06-04 09:10:09
 -->
 <template></template>
 
@@ -32,21 +32,22 @@ const props = defineProps({
     default: "",
     validator(value) {
       return (
-        isString(value) &&
-        [
-          "tdt",
-          "supermap",
-          "supermaprest",
-          "supermapstyle",
-          "wmts",
-          "xyz",
-          "wmsimagetile",
-          "wmsimage",
-          "arcgistile",
-          "arcgisimagetile",
-          "mapbox",
-          "geoserver",
-        ].includes(value.toLowerCase())
+        isString(value) 
+        // &&
+        // [
+        //   "tdt",
+        //   "supermap",
+        //   "supermaprest",
+        //   "supermapstyle",
+        //   "wmts",
+        //   "xyz",
+        //   "wmsimagetile",
+        //   "wmsimage",
+        //   "arcgistile",
+        //   "arcgisimagetile",
+        //   "mapbox",
+        //   "geoserver",
+        // ].includes(value.toLowerCase())
       );
     },
   },

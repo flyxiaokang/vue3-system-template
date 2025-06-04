@@ -4,7 +4,7 @@
  * @Author: kangjinrui
  * @Date: 2023-07-07 10:49:43
  * @LastEditors: kangjinrui
- * @LastEditTime: 2025-06-03 11:51:11
+ * @LastEditTime: 2025-06-03 18:39:23
 -->
 <template>
   <div class="vmap-drawbar">
@@ -56,31 +56,31 @@ const { snapEnable, selectEnable, modifyEnable, onceOnly } = toRefs(props);
 
 const mytools = [
   {
-    icon: "map-point",
+    icon: "vmap-point",
     tip: "绘制点",
     type: "Point",
     btnType: "primary",
   },
   {
-    icon: "map-polyline",
+    icon: "vmap-polyline",
     tip: "绘制线",
     type: "LineString",
     btnType: "primary",
   },
   {
-    icon: "map-polygon",
+    icon: "vmap-polygon",
     tip: "绘制面",
     type: "Polygon",
     btnType: "primary",
   },
   {
-    icon: "map-polygon",
+    icon: "vmap-polygon",
     tip: "绘制圆",
     type: "Circle",
     btnType: "primary",
   },
   {
-    icon: "map-polygon",
+    icon: "vmap-polygon",
     tip: "freehand",
     type: "freehand",
     btnType: "primary",
@@ -89,13 +89,13 @@ const mytools = [
 
 const b = [
   {
-    icon: "map-clear",
+    icon: "vmap-clear",
     tip: "清除绘制",
     type: "Clear",
     btnType: "primary",
   },
   {
-    icon: "map-close",
+    icon: "vmap-close",
     tip: "停止绘制",
     type: "Close",
     btnType: "danger",

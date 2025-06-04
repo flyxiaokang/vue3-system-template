@@ -4,7 +4,7 @@
  * @Author: kangjinrui
  * @Date: 2021-12-27 14:28:14
  * @LastEditors: kangjinrui
- * @LastEditTime: 2025-05-16 14:14:39
+ * @LastEditTime: 2025-06-04 09:26:56
  */
 import Base from "./Base";
 import "ol/ol.css";
@@ -504,7 +504,7 @@ class VMap extends Base {
   checkLayer() {
     return true;
   }
-
+  layerIndex = 10
   /**
    * 根据服务类型加加载
    * @param {*} options 
@@ -605,7 +605,7 @@ class VMap extends Base {
       id = VcUtils.UUIDGenerator(),
       visible = true,
       opacity = 1,
-      zIndex = undefined,
+      zIndex = this.layerIndex++,
       minZoom = undefined,
       maxZoom = undefined,
     } = options;

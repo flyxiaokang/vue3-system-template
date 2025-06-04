@@ -10,7 +10,7 @@
   <div style="width: 100%; height: 100%">
     <div style="height: 100px; display: flex; flex-direction: column">
       <div>
-        <el-checkbox v-model="visibleValue">点线面</el-checkbox>
+        <!-- <el-checkbox v-model="visibleValue">点线面</el-checkbox> -->
       </div>
       <div style="display: flex; height: 200px">
         <el-button @click="handleDraw('Point')">绘制点</el-button>
@@ -20,7 +20,7 @@
         <el-button @click="handleDraw('Ring')">绘制环</el-button>
         <el-button @click="handleDrawEnd">结束绘制</el-button>
 
-        <VueUpload :onSuccess="handleSuccess"></VueUpload>
+        <!-- <VueUpload :onSuccess="handleSuccess"></VueUpload> -->
       </div>
     </div>
     <OlMap

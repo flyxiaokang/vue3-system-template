@@ -4,7 +4,7 @@
  * @Author: kangjinrui
  * @Date: 2021-09-22 14:52:30
  * @LastEditors: kangjinrui
- * @LastEditTime: 2025-05-26 15:28:18
+ * @LastEditTime: 2025-06-03 17:35:29
 -->
 
 <template>
@@ -12,10 +12,10 @@
     <el-tooltip content="工具箱" placement="right">
       <el-button type="primary" circle @click="handleToggle">
         <SvgIcon
-          icon-class="map-box"
-          size="20"
+          icon-class="vmap-box"
+          :size="20"
           color="white"
-          style="margin-left: 2px"
+          style="margin-left: 2px;margin-bottom: 2px;"
         />
       </el-button>
     </el-tooltip>
@@ -35,7 +35,7 @@
         >
           <SvgIcon
             :icon-class="item.icon"
-            size="20"
+            :size="20"
             color="white"
             style="margin-left: 2px"
           />
@@ -83,7 +83,7 @@ let menus = ref(
   toolbar.map((e) => {
     return {
       ...e,
-      icon: "map-" + e.icon,
+      icon: "vmap-" + e.icon,
     };
   })
 );
@@ -94,7 +94,7 @@ onMounted(() => {
     );
   }
 
-  console.log("===", menus.value);
+  // console.log("===", menus.value);
 });
 
 let isCollapse = ref(!expand.value);

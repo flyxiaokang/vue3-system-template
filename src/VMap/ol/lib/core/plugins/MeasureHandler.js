@@ -4,111 +4,109 @@
  * @Author: kangjinrui
  * @Date: 2021-10-20 10:04:21
  * @LastEditors: kangjinrui
- * @LastEditTime: 2025-04-27 10:37:43
+ * @LastEditTime: 2025-06-04 09:44:22
  */
 
-import Draw from 'ol/interaction/Draw'
-import Overlay from 'ol/Overlay'
-import { Circle as CircleStyle, Fill, Stroke, Style } from 'ol/style'
-import { LineString, Polygon } from 'ol/geom'
-import { OSM, Vector as VectorSource } from 'ol/source'
-import { Tile as TileLayer, Vector as VectorLayer } from 'ol/layer'
-import { getArea, getLength } from 'ol/sphere'
-import { unByKey } from 'ol/Observable'
-import MultiPoint from 'ol/geom/MultiPoint'
-import Feature from 'ol/Feature'
+import Draw from "ol/interaction/Draw";
+import Overlay from "ol/Overlay";
+import { Circle as CircleStyle, Fill, Stroke, Style } from "ol/style";
+import { LineString, Polygon } from "ol/geom";
+import { OSM, Vector as VectorSource } from "ol/source";
+import { Tile as TileLayer, Vector as VectorLayer } from "ol/layer";
+import { getArea, getLength } from "ol/sphere";
+import { unByKey } from "ol/Observable";
+import MultiPoint from "ol/geom/MultiPoint";
+import Feature from "ol/Feature";
 
 // global so we can remove it later
-let pointerMoveHandler
-let draw
+let pointerMoveHandler;
+let draw;
 
 /**
  * Overlay to show the help messages.
  * @type {Overlay}
  */
-let helpTooltip
+let helpTooltip;
 
 /**
  * Overlay to show the measurement.
  * @type {Overlay}
  */
-let measureTooltip
+let measureTooltip;
 
-let measureTooltipArray = []
+let measureTooltipArray = [];
 
-let curMeasureType = ''
+let curMeasureType = "";
 
-let lastGeometry
+let lastGeometry;
 
-let polygonLayerArray = []
-let polylineLayerArray = []
+let polygonLayerArray = [];
+let polylineLayerArray = [];
 
 function finish(map) {
-  pointerMoveHandler && map.un('pointermove', pointerMoveHandler)
-  map && map.removeOverlay(helpTooltip)
-  map && map.removeInteraction(draw)
-  map && map.set('mouseStatus', V_MOUSE_STATUS.none)
+  pointerMoveHandler && map.un("pointermove", pointerMoveHandler);
+  map && map.removeOverlay(helpTooltip);
+  map && map.removeInteraction(draw);
+  map && map.set("mouseStatus", V_MOUSE_STATUS.none);
 }
 
-function endDraw(map){
-
-}
+function endDraw(map) {}
 
 function clear(map) {
   if (measureTooltipArray.length > 0) {
     for (let index = measureTooltipArray.length - 1; index >= 0; index--) {
-      const element = measureTooltipArray[index]
-      map.removeOverlay(element)
+      const element = measureTooltipArray[index];
+      map.removeOverlay(element);
     }
   }
 
   polygonLayerArray.forEach((element) => {
-    map.removeLayer(element)
-  })
+    map.removeLayer(element);
+  });
 
   polylineLayerArray.forEach((element) => {
-    map.removeLayer(element)
-  })
+    map.removeLayer(element);
+  });
 
-  polygonLayerArray = []
-  polylineLayerArray = []
-  measureTooltipArray = []
+  polygonLayerArray = [];
+  polylineLayerArray = [];
+  measureTooltipArray = [];
 }
 
 function init(map, measureType) {
-  curMeasureType = measureType
+  curMeasureType = measureType;
 
-  const source = new VectorSource()
+  const source = new VectorSource();
 
   /**
    * Currently drawn feature.
    * @type {import("../src/ol/Feature.js.js.js.js.js.js.js.js").default}
    */
-  let sketch
+  let sketch;
 
   /**
    * The help tooltip element.
    * @type {HTMLElement}
    */
-  let helpTooltipElement
+  let helpTooltipElement;
 
   /**
    * The measure tooltip element.
    * @type {HTMLElement}
    */
-  let measureTooltipElement
+  let measureTooltipElement;
 
   /**
    * Message to show when the user is drawing a polygon.
    * @type {string}
    */
-  const continuePolygonMsg = '双击结束测量'
+  const continuePolygonMsg = "双击结束测量";
 
   /**
    * Message to show when the user is drawing a line.
    * @type {string}
    */
-  const continueLineMsg = '双击结束测量'
+  const continueLineMsg = "双击结束测量";
 
   /**
    * Handle pointer move.
@@ -116,31 +114,31 @@ function init(map, measureType) {
    */
   pointerMoveHandler = function (evt) {
     if (evt.dragging) {
-      return
+      return;
     }
     /** @type {string} */
-    let helpMsg = '单击开始测量'
+    let helpMsg = "单击开始测量";
 
     if (sketch) {
-      const geom = sketch.getGeometry()
+      const geom = sketch.getGeometry();
       if (geom instanceof Polygon) {
-        helpMsg = continuePolygonMsg
+        helpMsg = continuePolygonMsg;
       } else if (geom instanceof LineString) {
-        helpMsg = continueLineMsg
+        helpMsg = continueLineMsg;
       }
     }
 
-    helpTooltipElement.innerHTML = helpMsg
-    helpTooltip.setPosition(evt.coordinate)
+    helpTooltipElement.innerHTML = helpMsg;
+    helpTooltip.setPosition(evt.coordinate);
 
-    helpTooltipElement.classList.remove('hidden')
-  }
+    helpTooltipElement.classList.remove("hidden");
+  };
 
-  map.on('pointermove', pointerMoveHandler)
+  map.on("pointermove", pointerMoveHandler);
 
-  map.getViewport().addEventListener('mouseout', () => {
-    helpTooltipElement.classList.add('hidden')
-  })
+  map.getViewport().addEventListener("mouseout", () => {
+    helpTooltipElement.classList.add("hidden");
+  });
 
   //   const typeSelect = document.getElementById('type');
 
@@ -152,15 +150,15 @@ function init(map, measureType) {
   const formatLength = function (line) {
     const length = getLength(line, {
       projection: map.getView().getProjection().getCode(),
-    })
-    let output
+    });
+    let output;
     if (length > 100) {
-      output = `${Math.round((length / 1000) * 100) / 100} ` + `km`
+      output = `${Math.round((length / 1000) * 100) / 100} ` + `km`;
     } else {
-      output = `${Math.round(length * 100) / 100} ` + `m`
+      output = `${Math.round(length * 100) / 100} ` + `m`;
     }
-    return output
-  }
+    return output;
+  };
 
   /**
    * Format area output.
@@ -170,87 +168,88 @@ function init(map, measureType) {
   const formatArea = function (polygon) {
     const area = getArea(polygon, {
       projection: map.getView().getProjection().getCode(),
-    })
-    let output
+    });
+    let output;
     if (area > 10000) {
-      output = `${Math.round((area / 1000000) * 100) / 100} ` + `km<sup>2</sup>`
+      output =
+        `${Math.round((area / 1000000) * 100) / 100} ` + `km<sup>2</sup>`;
     } else {
-      output = `${Math.round(area * 100) / 100} ` + `m<sup>2</sup>`
+      output = `${Math.round(area * 100) / 100} ` + `m<sup>2</sup>`;
     }
-    return output
-  }
+    return output;
+  };
 
   function addInteraction(measureType_) {
-    const type = measureType_ === 'area' ? 'Polygon' : 'LineString'
+    const type = measureType_ === "area" ? "Polygon" : "LineString";
     draw = new Draw({
       source: source,
       type: type,
       style: new Style({
         fill: new Fill({
-          color: 'rgba(0, 0, 255, 0.1)',
+          color: "rgba(0, 0, 255, 0.1)",
         }),
         stroke: new Stroke({
-          color: 'rgba(255,204, 0, 1)',
+          color: "rgba(255,204, 0, 1)",
           lineDash: [10, 10],
           width: 3,
         }),
         image: new CircleStyle({
           radius: 5,
           stroke: new Stroke({
-            color: 'rgba(0, 0, 0, 0.7)',
+            color: "rgba(0, 0, 0, 0.7)",
           }),
           fill: new Fill({
-            color: 'rgba(255, 255, 255, 0.2)',
+            color: "rgba(255, 255, 255, 0.2)",
           }),
         }),
       }),
-    })
-    map.removeInteraction(draw)
-    map.addInteraction(draw)
+    });
+    map.removeInteraction(draw);
+    map.addInteraction(draw);
 
-    createMeasureTooltip()
-    createHelpTooltip()
+    createMeasureTooltip();
+    createHelpTooltip();
 
-    let listener
-    draw.on('drawstart', (evt) => {
+    let listener;
+    draw.on("drawstart", (evt) => {
       // set sketch
-      sketch = evt.feature
+      sketch = evt.feature;
 
       /** @type {import("../src/ol/coordinate.js.js.js.js.js.js.js.js").Coordinate|undefined} */
-      let tooltipCoord = evt.coordinate
+      let tooltipCoord = evt.coordinate;
 
-      listener = sketch.getGeometry().on('change', (evt) => {
-        const geom = evt.target
-        let output
-        lastGeometry = geom
+      listener = sketch.getGeometry().on("change", (evt) => {
+        const geom = evt.target;
+        let output;
+        lastGeometry = geom;
         if (geom instanceof Polygon) {
-          output = formatArea(geom)
-          tooltipCoord = geom.getInteriorPoint().getCoordinates()
+          output = formatArea(geom);
+          tooltipCoord = geom.getInteriorPoint().getCoordinates();
         } else if (geom instanceof LineString) {
-          output = formatLength(geom)
-          tooltipCoord = geom.getLastCoordinate()
+          output = formatLength(geom);
+          tooltipCoord = geom.getLastCoordinate();
         }
-        measureTooltipElement.innerHTML = output
-        measureTooltip.setPosition(tooltipCoord)
-      })
-    })
+        measureTooltipElement.innerHTML = output;
+        measureTooltip.setPosition(tooltipCoord);
+      });
+    });
 
-    draw.on('drawend', () => {
-      finish(map)
-      measureTooltipElement.className = 'ol-tooltip ol-tooltip-static'
-      measureTooltip.setOffset([0, -7])
+    draw.on("drawend", () => {
+      finish(map);
+      measureTooltipElement.className = "ol-tooltip ol-tooltip-static";
+      measureTooltip.setOffset([0, -7]);
       // unset sketch
       // sketch = null;
       // console.log("end>>>",lastGeometry);
-      curMeasureType === 'area'
+      curMeasureType === "area"
         ? createPolygon(lastGeometry)
-        : createPolyline(lastGeometry)
+        : createPolyline(lastGeometry);
       // unset tooltip so that a new one can be created
-      measureTooltipElement = null
-      createMeasureTooltip()
-      unByKey(listener)
-      map.set('mouseStatus', V_MOUSE_STATUS.none)
-    })
+      measureTooltipElement = null;
+      createMeasureTooltip();
+      unByKey(listener);
+      map.set("mouseStatus", V_MOUSE_STATUS.none);
+    });
   }
 
   /**
@@ -258,16 +257,16 @@ function init(map, measureType) {
    */
   function createHelpTooltip() {
     if (helpTooltipElement) {
-      helpTooltipElement.parentNode.removeChild(helpTooltipElement)
+      helpTooltipElement.parentNode.removeChild(helpTooltipElement);
     }
-    helpTooltipElement = document.createElement('div')
-    helpTooltipElement.className = 'ol-tooltip hidden'
+    helpTooltipElement = document.createElement("div");
+    helpTooltipElement.className = "ol-tooltip hidden";
     helpTooltip = new Overlay({
       element: helpTooltipElement,
       offset: [15, 0],
-      positioning: 'center-left',
-    })
-    map.addOverlay(helpTooltip)
+      positioning: "center-left",
+    });
+    map.addOverlay(helpTooltip);
     // map.addOverlay([121,31]);
   }
 
@@ -276,19 +275,19 @@ function init(map, measureType) {
    */
   function createMeasureTooltip() {
     if (measureTooltipElement) {
-      measureTooltipElement.parentNode.removeChild(measureTooltipElement)
+      measureTooltipElement.parentNode.removeChild(measureTooltipElement);
     }
-    measureTooltipElement = document.createElement('div')
-    measureTooltipElement.className = 'ol-tooltip ol-tooltip-measure'
+    measureTooltipElement = document.createElement("div");
+    measureTooltipElement.className = "ol-tooltip ol-tooltip-measure";
     measureTooltip = new Overlay({
       element: measureTooltipElement,
       offset: [0, -15],
-      positioning: 'bottom-center',
+      positioning: "bottom-center",
       stopEvent: false,
       insertFirst: false,
-    })
-    measureTooltipArray.push(measureTooltip)
-    map.addOverlay(measureTooltip)
+    });
+    measureTooltipArray.push(measureTooltip);
+    map.addOverlay(measureTooltip);
 
     // let menu_overlay = new ol.Overlay({
     //     id: 'ls_menuOverlayId',
@@ -305,7 +304,7 @@ function init(map, measureType) {
   function createPolygon(geometry) {
     const polygonFeature = new Feature({
       geometry,
-    })
+    });
     const styles = [
       /* We are using two different styles for the polygons:
        *  - The first style is for the polygons themselves.
@@ -316,48 +315,49 @@ function init(map, measureType) {
        */
       new Style({
         stroke: new Stroke({
-          color: 'orange',
+          color: "orange",
           width: 3,
         }),
         fill: new Fill({
-          color: 'rgba(0, 0, 255, 0.1)',
+          color: "rgba(0, 0, 255, 0.1)",
         }),
       }),
       new Style({
         image: new CircleStyle({
           radius: 5,
           fill: new Fill({
-            color: 'orange',
+            color: "orange",
           }),
         }),
         geometry: function (feature) {
           // return the coordinates of the first ring of the polygon
-          const coordinates = feature.getGeometry().getCoordinates()[0]
+          const coordinates = feature.getGeometry().getCoordinates()[0];
           // console.log("point>>",coordinates);
-          return new MultiPoint(coordinates)
+          return new MultiPoint(coordinates);
         },
       }),
-    ]
+    ];
     const polygonStyle = new Style({
       stroke: new Stroke({
-        color: 'orange',
+        color: "orange",
         width: 3,
       }),
       fill: new Fill({
-        color: 'rgba(255,217,102, 0.2)',
+        color: "rgba(255,217,102, 0.2)",
       }),
-    })
-    polygonFeature.setStyle(styles)
+    });
+    polygonFeature.setStyle(styles);
     const vectorSource = new VectorSource({
       features: [polygonFeature],
-    })
+    });
     const polygonLayer = new VectorLayer({
       source: vectorSource,
       // id: layerId
-    })
-    polygonLayerArray.push(polygonLayer)
+    });
+    polygonLayerArray.push(polygonLayer);
 
-    map.addLayer(polygonLayer)
+    map.addLayer(polygonLayer);
+    polygonLayer.setZIndex(1999);
   }
 
   /**
@@ -366,7 +366,7 @@ function init(map, measureType) {
   function createPolyline(geometry) {
     const polygonFeature = new Feature({
       geometry,
-    })
+    });
     const styles = [
       /* We are using two different styles for the polygons:
        *  - The first style is for the polygons themselves.
@@ -377,48 +377,49 @@ function init(map, measureType) {
        */
       new Style({
         stroke: new Stroke({
-          color: 'orange',
+          color: "orange",
           width: 3,
         }),
         fill: new Fill({
-          color: 'rgba(0, 0, 255, 0.1)',
+          color: "rgba(0, 0, 255, 0.1)",
         }),
       }),
       new Style({
         image: new CircleStyle({
           radius: 5,
           fill: new Fill({
-            color: 'orange',
+            color: "orange",
           }),
         }),
         geometry: function (feature) {
           // return the coordinates of the first ring of the polygon
-          const coordinates = feature.getGeometry().getCoordinates()
+          const coordinates = feature.getGeometry().getCoordinates();
           // console.log("point>>",coordinates);
-          return new MultiPoint(coordinates)
+          return new MultiPoint(coordinates);
         },
       }),
-    ]
+    ];
     const polygonStyle = new Style({
       stroke: new Stroke({
-        color: 'orange',
+        color: "orange",
         width: 3,
       }),
       fill: new Fill({
-        color: 'rgba(255,217,102, 0.2)',
+        color: "rgba(255,217,102, 0.2)",
       }),
-    })
-    polygonFeature.setStyle(styles)
+    });
+    polygonFeature.setStyle(styles);
     const vectorSource = new VectorSource({
       features: [polygonFeature],
-    })
+    });
     const polygonLayer = new VectorLayer({
       source: vectorSource,
       // id: layerId
-    })
+    });
 
-    polylineLayerArray.push(polygonLayer)
-    map.addLayer(polygonLayer)
+    polylineLayerArray.push(polygonLayer);
+    map.addLayer(polygonLayer);
+    polygonLayer.setZIndex(1999);
   }
 
   function createPoints() {}
@@ -431,47 +432,47 @@ function init(map, measureType) {
   //     addInteraction();
   //   };
 
-  addInteraction(measureType)
+  addInteraction(measureType);
 }
 
-import { V_MOUSE_STATUS } from '@/VMap/global.js'
-import Base from '../Base.js'
+import { V_MOUSE_STATUS } from "@/VMap/global.js";
+import Base from "../Base.js";
 
 export default class MeasureHandler extends Base {
   constructor(map) {
-    super()
-    this.map = map
+    super();
+    this.map = map;
   }
 
   measureLength(map = this.map, clearLast = false) {
-    map.set('mouseStatus', V_MOUSE_STATUS.mesure)
+    finish(map);
+    map.set("mouseStatus", V_MOUSE_STATUS.mesure);
+    // console.log("mousestatus===", map.get("mouseStatus"));
     // clearLast && clear(map)
-    finish(map)
-    init(map, 'length')
+    init(map, "length");
   }
 
   measureArea(map = this.map, clearLast = false) {
-    map.set('mouseStatus', V_MOUSE_STATUS.mesure)
+    finish(map);
+    map.set("mouseStatus", V_MOUSE_STATUS.mesure);
     // clearLast && clear(map)
-    finish(map)
-    init(map, 'area')
+    init(map, "area");
   }
 
   clearResult(map = this.map) {
-    finish(map)
-    clear(map)
+    finish(map);
+    clear(map);
   }
 
-  endDraw(map = this.map){
-  }
+  endDraw(map = this.map) {}
 }
 
-let _map = null
-let _cmap = null
+let _map = null;
+let _cmap = null;
 
 export function setMap(map, cmap) {
-  _map = map
-  _cmap = cmap
+  _map = map;
+  _cmap = cmap;
 }
 
 /**
@@ -480,8 +481,8 @@ export function setMap(map, cmap) {
  * @param {*} clearLast 是否立即清除结果
  */
 export function measureLength(map = _map, clearLast = false) {
-  clearLast && clear(map)
-  init(map, 'length')
+  clearLast && clear(map);
+  init(map, "length");
 }
 
 /**
@@ -490,8 +491,8 @@ export function measureLength(map = _map, clearLast = false) {
  * @param {*} clearLast
  */
 export function measureArea(map = _map, clearLast = false) {
-  clearLast && clear(map)
-  init(map, 'area')
+  clearLast && clear(map);
+  init(map, "area");
 }
 
 /**
@@ -499,6 +500,6 @@ export function measureArea(map = _map, clearLast = false) {
  * @param {*} map
  */
 export function clearResult(map = _map) {
-  finish(map)
-  clear(map)
+  finish(map);
+  clear(map);
 }

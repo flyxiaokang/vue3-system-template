@@ -9,7 +9,7 @@
 
 export const toolbar = [
   {
-    label: "地图选择",
+    label: "选择",
     image: new URL("../../assets/image/toolbar/arrow.png", import.meta.url)
       .href,
     key: "pointer",

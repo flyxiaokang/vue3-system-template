@@ -4,6 +4,7 @@ import path from "path";
 import { defineConfig, loadEnv } from "vite";
 import { visualizer } from "rollup-plugin-visualizer";
 import { createSvgIconsPlugin } from "vite-plugin-svg-icons";
+import VueSetupExtend from 'vite-plugin-vue-setup-extend-plus'
 
 const build_enum = {
   ol: "v-openlayers",
@@ -33,6 +34,7 @@ export default defineConfig(({ mode }) => {
         symbolId: "icon-[dir]-[name]",
       }),
       // visualizer(),
+      VueSetupExtend()
     ],
     optimizeDeps: {
       // include: ['schart.js']

@@ -4,7 +4,7 @@
  * @Author: kangjinrui
  * @Date: 2021-09-22 19:52:30
  * @LastEditors: kangjinrui
- * @LastEditTime: 2025-06-03 11:26:53
+ * @LastEditTime: 2025-06-04 09:30:46
 -->
 <template>
   <div class="vmap-base-layer" :style="getStyle">
@@ -38,30 +38,30 @@
 </template>
 
 <script setup>
-import { ref, toRefs, computed, inject } from 'vue'
-import basemapSrc from '../../../assets/image/toolbar/basemap.png'
-import { useProps, useEmits, usePosition } from '../baseBar'
+import { ref, toRefs, computed, inject } from "vue";
+import basemapSrc from "../../../assets/image/toolbar/basemap.png";
+import { useProps, useEmits, usePosition } from "../baseBar";
 
-const olHandler = inject('olHandler')
-const mapConfig = inject('mapConfig')
+const olHandler = inject("olHandler");
+const mapConfig = inject("mapConfig");
 
 const props = defineProps({
   ...useProps,
-})
-const emits = defineEmits(['change'])
+});
+const emits = defineEmits(["change"]);
 
-const getStyle = usePosition(toRefs(props))
+const getStyle = usePosition(toRefs(props));
 
-let defaultId = mapConfig.defaultBaseLayerId
-let curLayerIndex = ref(defaultId)
-let showLayers = ref(false)
+let defaultId = mapConfig.defaultBaseLayerId;
+let curLayerIndex = ref(defaultId);
+let showLayers = ref(false);
 
-let picBase = ref('')
-let baseLayers = ref(mapConfig.baseLayers)
+let picBase = ref("");
+let baseLayers = ref(mapConfig.baseLayers);
 
 const handleMouseover = () => {
-  showLayers.value = true
-}
+  showLayers.value = true;
+};
 
 const handleToggleLayer = (item) => {
   // let ids = []
@@ -72,24 +72,25 @@ const handleToggleLayer = (item) => {
   // } else {
   //   ids.push(layer.id)
   // }
-  curLayerIndex.value = item.id
-  toggleMap(item)
-}
+  curLayerIndex.value = item.id;
+  toggleMap(item);
+};
 
 const toggleMap = (item) => {
   // olHandler.toggleBaseLayer(item)
-  const layers = olHandler.getBaseLayer(item)
-  layers.forEach((layer) => {
-    olHandler.map.addLayer(layer)
-  })
-  emits('change', item.id)
-}
+  const layers = olHandler.getBaseLayer(item);
+  layers.forEach((layer, index) => {
+    olHandler.map.addLayer(layer);
+    layer.setZIndex(index+1);
+  });
+  emits("change", item.id);
+};
 </script>
 
 <script>
 export default {
-  name: 'OlBasemap',
-}
+  name: "OlBasemap",
+};
 </script>
 <style scoped>
 .vmap-base-layer {

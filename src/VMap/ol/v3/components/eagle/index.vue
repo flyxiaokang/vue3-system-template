@@ -4,7 +4,7 @@
  * @Author: kangjinrui
  * @Date: 2024-06-19 16:51:06
  * @LastEditors: kangjinrui
- * @LastEditTime: 2025-05-26 11:52:22
+ * @LastEditTime: 2025-06-04 09:01:41
 -->
 
 <template>
@@ -18,7 +18,7 @@
     @ready="handleMapReady"
   >
     <SvgIcon
-      icon-class="map-min"
+      icon-class="vmap-min"
       size="20"
       color="black"
       v-if="!isMin"
@@ -36,7 +36,7 @@
 
     <SvgIcon
       v-else
-      icon-class="map-max"
+      icon-class="vmap-max"
       @click="maxWindow"
       style="
         font-size: 24px;
